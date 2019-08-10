@@ -52,7 +52,7 @@ class Canvas extends JPanel implements MouseListener, ChangeListener {
 
     void redo() {
         int size = (this.redoList.getSize() - 1);
-        Shape shape = this.redoList.getShape(size).clone();
+        Shape shape = this.redoList.get(size).clone();
         this.shapeList.push(shape);
         this.redoList.pop();
         repaint();
@@ -86,7 +86,7 @@ class Canvas extends JPanel implements MouseListener, ChangeListener {
 
     void undo() {
         int size = (this.shapeList.getSize() - 1);
-        Shape shape = this.shapeList.getShape(size).clone();
+        Shape shape = this.shapeList.get(size).clone();
         this.redoList.push(shape);
         this.shapeList.pop();
         repaint();
@@ -97,7 +97,7 @@ class Canvas extends JPanel implements MouseListener, ChangeListener {
     public void mouseClicked(MouseEvent arg0) {
         if (this.currBrush == null) {
             javax.swing.JOptionPane.showMessageDialog(null, "Must Select a Shape");
-            throw new RuntimeException("Must Select a Shape");
+            return;
         }
     }
 
@@ -115,7 +115,7 @@ class Canvas extends JPanel implements MouseListener, ChangeListener {
         // Set shape
         if (this.currBrush == null) {
             javax.swing.JOptionPane.showMessageDialog(null, "Must Select a Shape");
-            throw new RuntimeException("Must Select a Shape");
+            return;
         } else if (this.currBrush.equals("Rectangle")) {
             this.currShape = new Rectangle();
         } else if (this.currBrush.equals("Circle")) {
@@ -196,7 +196,7 @@ class Canvas extends JPanel implements MouseListener, ChangeListener {
     public void paint(Graphics graphics) {
         super.paint(graphics);
         for (int i = 0; i < this.shapeList.getSize(); i++) {
-            this.shapeList.getShape(i).draw(graphics);
+            this.shapeList.get(i).draw(graphics);
         }
     }
 }

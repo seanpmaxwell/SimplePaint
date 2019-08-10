@@ -9,8 +9,7 @@ import java.io.Serializable;
 class ShapeList implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    private static final int defaultCapacity = 20;
-    private int currCapacity = ShapeList.defaultCapacity;
+    private static final int defaultCapacity = 10;
     private int numOfShapes;
 	private Shape[] shapeArr;
 
@@ -23,13 +22,10 @@ class ShapeList implements Serializable {
 
 	ShapeList(ShapeList list) {
         this.numOfShapes = list.getSize();
-        this.currCapacity = list.getCapacity();
-        var newLength = this.shapeArr.length;
-        var newArr = new Shape[newLength];
-		for (int i = 0; i <= newLength - 1; i++) {
-            newArr[i] = shapeArr[i].clone();
+        this.shapeArr = new Shape[list.getCapacity()];
+		for (int i = 0; i <= this.numOfShapes - 1; i++) {
+            this.shapeArr[i] = list.get(i).clone();
         }
-        this.shapeArr = newArr;
 	}
     
 
@@ -39,11 +35,11 @@ class ShapeList implements Serializable {
 
 
     int getCapacity() {
-        return this.currCapacity;
+        return this.shapeArr.length;
     }
 
 
-    Shape getShape(int i) {
+    Shape get(int i) {
         return this.shapeArr[i];
     }
 
@@ -54,9 +50,9 @@ class ShapeList implements Serializable {
 
 
     void push(Shape shape) {
-        if (this.numOfShapes == this.currCapacity) {
-            this.currCapacity *= 2;
-            var newArr = new Shape[this.currCapacity];
+        int currCapacity = this.shapeArr.length;
+        if (this.numOfShapes == currCapacity) {
+            var newArr = new Shape[(currCapacity*2)];
             for (int i = 0; i < this.numOfShapes; i++) {
                 newArr[i] = this.shapeArr[i];
             }
@@ -67,14 +63,7 @@ class ShapeList implements Serializable {
 
 
 	Shape pop() {
-        Shape lastShape = this.shapeArr[this.numOfShapes];
-        var newArr = new Shape[this.numOfShapes - 1];
-        for (int i = 0; i < this.numOfShapes; i++) {
-            newArr[i] = this.shapeArr[i];
-        }
-        this.shapeArr = newArr;
-        this.numOfShapes--;
-        return lastShape;
+        return this.shapeArr[--this.numOfShapes];
 	}
 
 

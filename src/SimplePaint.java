@@ -28,14 +28,13 @@ class SimplePaint extends JFrame {
         super.add(canvas);
         super.add(colorChooser, BorderLayout.SOUTH);
         // Intiailize parent container layout
-        super.setVisible(true);
         super.setBounds(0, 0, 1500, 900);
         super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        super.setLayout(new BorderLayout());
+        super.setVisible(true);
         // Set look and feel to Nimbus
         try {
             for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbussssss".equals(info.getName())) {
+                if ("Nimbus".equals(info.getName())) {
                     UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
