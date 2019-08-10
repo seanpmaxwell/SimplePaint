@@ -22,10 +22,10 @@ class SimplePaint extends JFrame {
     void start() {
         // Initialize subcomponents
         var colorChooser = new JColorChooser();
-        var drawPanel = new Canvas(colorChooser);
-        var btnPanel = new ButtonPanel(drawPanel);
+        var canvas = new Canvas(colorChooser);
+        var btnPanel = new ButtonPanel(canvas);
         super.add(btnPanel, BorderLayout.WEST);
-        super.add(drawPanel);
+        super.add(canvas);
         super.add(colorChooser, BorderLayout.SOUTH);
         // Intiailize parent container layout
         super.setVisible(true);

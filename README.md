@@ -11,4 +11,10 @@ or be just an outline. Shapes can also be sorted by size (pushing the larger sha
 Current projects can be saved and then resumed later. This was my second major programming assignment 
 before becoming a computer science major. It was the final assignment in my second quarter of Java 
 programming. The primary purpose of this assignment was to learn inheritance, interfaces, and basics 
-of the Java Swing library. 
+of the Java Swing library.
+
+
+## Commands
+- Compile src files: `javac -d bin/ src/*.java`
+- Create jar file: `jar cvfe SimplePaint.jar Main -C bin .`
+- Run the jar file: `java -jar SimplePaint.jar`
