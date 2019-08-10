@@ -7,7 +7,7 @@ abstract class Shape implements Cloneable, Comparable<Shape>, Serializable {
 
 	private static final long serialVersionUID = 1L;
     private int xCoord, yCoord;
-    private int width, height; // don't use protecte switch to private getters
+    private int width, height;
 	private boolean isFilled;
     private Color shapeColor;
 
@@ -105,9 +105,9 @@ abstract class Shape implements Cloneable, Comparable<Shape>, Serializable {
         } else if (this.getArea() == other.getArea()) {
             return 0;
         } else if (this.getArea() > other.getArea()) {
-            return -1;
-        } else {
             return 1;
+        } else {
+            return -1;
         }
 	}
 }

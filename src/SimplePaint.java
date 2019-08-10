@@ -20,7 +20,7 @@ class SimplePaint extends JFrame {
 
 
     void start() {
-        // Initialize subcomponents
+        // Add subcomponents
         var colorChooser = new JColorChooser();
         var canvas = new Canvas(colorChooser);
         var btnPanel = new ButtonPanel(canvas);
@@ -29,13 +29,13 @@ class SimplePaint extends JFrame {
         super.add(colorChooser, BorderLayout.SOUTH);
         // Intiailize parent container layout
         super.setVisible(true);
-        super.setBounds(400, 100, 1500, 900);
+        super.setBounds(0, 0, 1500, 900);
         super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         super.setLayout(new BorderLayout());
         // Set look and feel to Nimbus
         try {
             for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Nimbussssss".equals(info.getName())) {
                     UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
