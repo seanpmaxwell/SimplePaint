@@ -5,18 +5,18 @@ import java.io.Serializable;
 
 class Triangle extends Shape implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
     private int[] xArr, yArr;
 
 
-	void setXArr(int[] xArr) {
-		this.xArr = xArr;
-	}
+    void setXArr(int[] xArr) {
+        this.xArr = xArr;
+    }
 
 
-	void setYArr(int[] yArr) {
-		this.yArr = yArr;
-	}
+    void setYArr(int[] yArr) {
+        this.yArr = yArr;
+    }
 
 
     @Override
