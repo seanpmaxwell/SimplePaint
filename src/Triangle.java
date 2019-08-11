@@ -7,7 +7,6 @@ class Triangle extends Shape implements Serializable {
 
 	private static final long serialVersionUID = 1L;
     private int[] xArr, yArr;
-    private int base, height;
 
 
 	void setXArr(int[] xArr) {
@@ -33,10 +32,10 @@ class Triangle extends Shape implements Serializable {
 
 
     @Override
-    public double getArea() {
-        this.base = (this.xArr[0] - this.xArr[1]);
-        this.height = (this.yArr[2] - this.yArr[1]);
-        double area = (base * height / 2);
+    public int getArea() {
+        int base = (this.xArr[0] - this.xArr[1]);
+        int height = (this.yArr[2] - this.yArr[1]);
+        int area = ((base * height) / 2);
         return (area < 0 ? area * -1 : area);
     }
 }

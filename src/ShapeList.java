@@ -67,22 +67,22 @@ class ShapeList implements Serializable {
 	}
 
 
-    void sort() {
-        this.quickSort(this.shapeArr, 0, this.numOfShapes-1);
-    }
-
-    
     /**
      * Note: QuickSort selects a pivot, moves the higher
      * elements forward and the lesser elements backwards
      * using the pivot (or reverse in this case). Then 
      * recursively repeats the process by return the pivot.
      */
+    void sort() {
+        this.quickSort(this.shapeArr, 0, this.numOfShapes-1);
+    }
+
+
     private void quickSort(Shape[] arr, int low, int high) {
         if (low < high) {
             int pi = this.partition(arr, low, high);
-            this.quickSort(arr, low, pi - 1);
-            this.quickSort(arr, pi + 1, high);
+            this.quickSort(arr, low, pi-1);
+            this.quickSort(arr, pi+1, high);
         }
     }
 
@@ -90,13 +90,15 @@ class ShapeList implements Serializable {
     private int partition(Shape[] arr, int low, int high) {
         Shape pivot = arr[high];  
         int i = (low - 1);
-        for (int j = low; j <= high; j++) {
+        for (int j = low; j < high; j++) {
             if (arr[j].compareTo(pivot) >= 0) { // Sort high to low
-                this.swap(arr, ++i, j);
+                i++;
+                this.swap(arr, i, j);
             }
         }
-        this.swap(arr, i+1, high);
-        return (i+1);
+        i++;
+        this.swap(arr, i, high);
+        return i;
     }
 
 

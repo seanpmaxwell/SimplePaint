@@ -5,8 +5,6 @@
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JColorChooser;
-import javax.swing.UIManager;
-import javax.swing.UIManager.LookAndFeelInfo;
 
 
 class SimplePaint extends JFrame {
@@ -31,16 +29,5 @@ class SimplePaint extends JFrame {
         super.setBounds(0, 0, 1500, 900);
         super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         super.setVisible(true);
-        // Set look and feel to Nimbus
-        try {
-            for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-		} catch (Exception e) {
-			System.err.println("Couldn't use the system look and feel: " + e.toString());
-		}
     }
 }

@@ -82,7 +82,7 @@ abstract class Shape implements Cloneable, Comparable<Shape>, Serializable {
     }
 
 
-    abstract double getArea();
+    abstract int getArea();
 
 
     abstract void draw(Graphics g);
