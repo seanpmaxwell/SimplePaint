@@ -18,7 +18,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 class ButtonPanel extends JPanel implements ActionListener {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
     private Canvas canvas;
     private JFileChooser fileChooser;
 
@@ -31,10 +31,10 @@ class ButtonPanel extends JPanel implements ActionListener {
     private JButton sortSize;
     private JButton save;
     private JButton load;
-	
 
-	ButtonPanel(Canvas canvas) {
-		this.canvas = canvas;
+
+    ButtonPanel(Canvas canvas) {
+        this.canvas = canvas;
         super.setLayout(new GridLayout(9,1));
         // Init buttons
         rectangleBtn = new JButton("Rectangle");
@@ -68,11 +68,11 @@ class ButtonPanel extends JPanel implements ActionListener {
         super.add(save);
         super.add(load);
     }
-    
+
 
     @Override
-	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == this.rectangleBtn) {
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == this.rectangleBtn) {
             this.canvas.setCurrBrush(BrushOptions.Rectangle);
         } else if (e.getSource() == this.circleBtn) {
             this.canvas.setCurrBrush(BrushOptions.Cirlce);
@@ -94,7 +94,7 @@ class ButtonPanel extends JPanel implements ActionListener {
     }
 
 
-	private void fill() {
+    private void fill() {
         if (this.canvas.getIsFilled()) {
             fill.setBackground(null);
             canvas.setIsFilled(false);
