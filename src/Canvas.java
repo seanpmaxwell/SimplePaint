@@ -19,7 +19,7 @@ class Canvas extends JPanel implements MouseListener, ChangeListener {
     private Color currColor;
     private Shape currShape;
 
-    private String currBrush;
+    private BrushOptions currBrush;
     private boolean isFilled;
 
 
@@ -59,7 +59,7 @@ class Canvas extends JPanel implements MouseListener, ChangeListener {
     }
 
 
-    void setCurrBrush(String brush) {
+    void setCurrBrush(BrushOptions brush) {
         this.currBrush = brush;
     }
 
@@ -70,9 +70,6 @@ class Canvas extends JPanel implements MouseListener, ChangeListener {
 
 
     void setShapeList(ShapeList list) {
-        // if (list == null) {
-        //     throw new RuntimeException();
-        // }
         this.shapeList = new ShapeList(list);
         repaint();
     }
@@ -116,11 +113,11 @@ class Canvas extends JPanel implements MouseListener, ChangeListener {
         if (this.currBrush == null) {
             javax.swing.JOptionPane.showMessageDialog(null, "Must Select a Shape");
             return;
-        } else if (this.currBrush.equals("Rectangle")) {
+        } else if (this.currBrush.equals(BrushOptions.Rectangle)) {
             this.currShape = new Rectangle();
-        } else if (this.currBrush.equals("Circle")) {
+        } else if (this.currBrush.equals(BrushOptions.Cirlce)) {
             this.currShape = new Circle();
-        } else if (this.currBrush.equals("Triangle")) {
+        } else if (this.currBrush.equals(BrushOptions.Triangle)) {
             this.currShape = new Triangle();
         }
         // Set coordinates
@@ -136,9 +133,9 @@ class Canvas extends JPanel implements MouseListener, ChangeListener {
 
     @Override
     public void mouseReleased(MouseEvent arg0) {
-        if (this.currBrush.equals("Circle") || this.currBrush.equals("Rectangle")) {
+        if (this.currBrush.equals(BrushOptions.Cirlce) || this.currBrush.equals(BrushOptions.Rectangle)) {
             this.makeCircOrRect(arg0);
-        } else if (this.currBrush.equals("Triangle")) {
+        } else if (this.currBrush.equals(BrushOptions.Triangle)) {
             this.makeATriangle(arg0);
         }
         repaint();
@@ -165,7 +162,7 @@ class Canvas extends JPanel implements MouseListener, ChangeListener {
             this.currShape.setY(arg0.getY());
         }
         // Create new shape
-        if (this.currBrush.equals("Circle")) {
+        if (this.currBrush.equals(BrushOptions.Cirlce)) {
             Circle newCirc = (Circle)this.currShape;
             this.shapeList.push(newCirc.clone());
         } else {

@@ -73,11 +73,11 @@ class ButtonPanel extends JPanel implements ActionListener {
     @Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == this.rectangleBtn) {
-            this.canvas.setCurrBrush("Rectangle");
+            this.canvas.setCurrBrush(BrushOptions.Rectangle);
         } else if (e.getSource() == this.circleBtn) {
-            this.canvas.setCurrBrush("Circle");
+            this.canvas.setCurrBrush(BrushOptions.Cirlce);
         } else if (e.getSource() == this.triangleBtn) {
-            this.canvas.setCurrBrush("Triangle");
+            this.canvas.setCurrBrush(BrushOptions.Triangle);
         } else if (e.getSource() == this.fill) {
             this.fill();
         } else if (e.getSource() == this.undo) {
