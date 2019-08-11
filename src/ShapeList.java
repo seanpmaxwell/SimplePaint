@@ -11,23 +11,23 @@ class ShapeList implements Serializable {
     private static final long serialVersionUID = 1L;
     private static final int defaultCapacity = 10;
     private int numOfShapes;
-	private Shape[] shapeArr;
+    private Shape[] shapeArr;
 
 
-	ShapeList() {
+    ShapeList() {
         this.numOfShapes = 0;
         this.shapeArr = new Shape[ShapeList.defaultCapacity];
     }
 
 
-	ShapeList(ShapeList list) {
+    ShapeList(ShapeList list) {
         this.numOfShapes = list.getSize();
         this.shapeArr = new Shape[list.getCapacity()];
-		for (int i = 0; i <= this.numOfShapes - 1; i++) {
+        for (int i = 0; i <= this.numOfShapes - 1; i++) {
             this.shapeArr[i] = list.get(i).clone();
         }
-	}
-    
+    }
+
 
     Shape[] getShapeArr() {
         return this.shapeArr;
@@ -62,9 +62,9 @@ class ShapeList implements Serializable {
     }
 
 
-	Shape pop() {
+    Shape pop() {
         return this.shapeArr[--this.numOfShapes];
-	}
+    }
 
 
     /**
