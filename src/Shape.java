@@ -5,21 +5,21 @@ import java.io.Serializable;
 
 abstract class Shape implements Cloneable, Comparable<Shape>, Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
     private int xCoord, yCoord;
     private int width, height;
-	private boolean isFilled;
+    private boolean isFilled;
     private Color shapeColor;
 
 
     Shape() {}
 
 
-	Shape(Shape shape) {
-		this.setX(shape.getX());
-		this.setY(shape.getY());
-		this.setColor(shape.getColor());
-	}
+    Shape(Shape shape) {
+        this.setX(shape.getX());
+        this.setY(shape.getY());
+        this.setColor(shape.getColor());
+    }
 
 
     Color getColor() {
@@ -52,10 +52,10 @@ abstract class Shape implements Cloneable, Comparable<Shape>, Serializable {
     }
 
 
-	boolean getIsFilled() {
-		return this.isFilled;
+    boolean getIsFilled() {
+        return this.isFilled;
     }
-    
+
 
     void setIsFilled(boolean isFilled) {
         this.isFilled = isFilled;
@@ -68,17 +68,17 @@ abstract class Shape implements Cloneable, Comparable<Shape>, Serializable {
 
 
     void setX(int xCoord) {
-		this.xCoord = xCoord;
+        this.xCoord = xCoord;
     }
 
 
-	int getY() {
-		return this.yCoord;
-	}
+    int getY() {
+        return this.yCoord;
+    }
 
 
-	void setY(int yCoord) {
-		this.yCoord = yCoord;
+    void setY(int yCoord) {
+        this.yCoord = yCoord;
     }
 
 
@@ -86,7 +86,7 @@ abstract class Shape implements Cloneable, Comparable<Shape>, Serializable {
 
 
     abstract void draw(Graphics g);
-    
+
 
     @Override 
     public Shape clone() {
@@ -98,9 +98,9 @@ abstract class Shape implements Cloneable, Comparable<Shape>, Serializable {
     }
 
 
-	@Override
-	public int compareTo(Shape other) {
-		if (other == null || !(other instanceof Shape)) {
+    @Override
+    public int compareTo(Shape other) {
+        if (other == null || !(other instanceof Shape)) {
             throw new RuntimeException("Error Comparing Shapes");
         } else if (this.getArea() == other.getArea()) {
             return 0;
@@ -109,6 +109,6 @@ abstract class Shape implements Cloneable, Comparable<Shape>, Serializable {
         } else {
             return -1;
         }
-	}
+    }
 }
 
