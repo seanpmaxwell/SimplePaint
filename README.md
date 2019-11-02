@@ -14,7 +14,7 @@ programming. The primary purpose of this assignment was to learn inheritance, in
 of the Java Swing library.
 
 
-## Commands
+## Compiling
 - Compile src files: `javac -d bin/ src/*.java`
 - Create jar file: `jar cvfe SimplePaint.jar Main -C bin .`
 - Run the jar file: `java -jar SimplePaint.jar`
